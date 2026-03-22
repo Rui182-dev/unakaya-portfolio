@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/layout/BaseHead.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import SiteFooter from '../components/layout/SiteFooter.astro';
+import { site } from '../data/site';
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+const {
+	title = `${site.title} | ${site.role}`,
+	description = site.description,
+	image,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} image={image} />
+	</head>
+	<body>
+		<SiteHeader />
+		<main class="page-shell">
+			<slot />
+		</main>
+		<SiteFooter />
+	</body>
+</html>

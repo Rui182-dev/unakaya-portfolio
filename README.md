@@ -1,62 +1,92 @@
-# Astro Starter Kit: Blog
+# Urui Nakaya Portfolio
 
-```sh
-npm create astro@latest -- --template blog
-```
+Professional portfolio site for an FX Artist focused on Houdini, simulation, and procedural workflows.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Overview
 
-Features:
+This project is built with Astro and structured as a portfolio site rather than a blog.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+Current site structure:
+- `/`
+  Curated homepage with hero, demoreel, selected work, commercial work, tool/R&D, and combined about/contact section.
+- `/works/[slug]`
+  Detail pages for individual work items.
 
-## 🚀 Project Structure
+The site is designed for static deployment and is compatible with Cloudflare Pages.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Content Structure
 
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+Portfolio entries are stored in `src/content/works/`.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Supported work categories:
+- `personal`
+- `commercial`
+- `tool`
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Common frontmatter fields include:
+- `title`
+- `subtitle`
+- `category`
+- `featured`
+- `order`
+- `year`
+- `role`
+- `software`
+- `techniques`
+- `summary`
+- `projectContext`
+- `officialLink`
+- `officialLinkLabel`
+- `contribution`
+- `gallery`
+- `additionalNotes`
+- `thumbnail`
+- `video`
+- `localVideo`
+- `poster`
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Media Conventions
 
-Any static assets, like images, can be placed in the `public/` directory.
+Recommended storage:
+- `src/assets/`
+  Images processed by Astro such as thumbnails, stills, and portraits.
+- `public/media/`
+  Local reel clips, GIFs, and work videos served directly.
+- `public/posters/`
+  Poster images used by local videos.
 
-## 🧞 Commands
+Examples:
+- `thumbnail: ../../assets/placeholders/personal-shot-01.jpg`
+- `localVideo: /media/works/my-shot/clip.mp4`
+- `poster: /posters/my-shot.jpg`
 
-All commands are run from the root of the project, from a terminal:
+## Development
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+All commands run from the project root.
 
-## 👀 Want to learn more?
+- `npm install`
+  Install dependencies.
+- `npm run dev`
+  Start the local dev server.
+- `npm run build`
+  Build the static site into `dist/`.
+- `npm run preview`
+  Preview the production build locally.
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Temporary Cloudflare Pages Deployment
 
-## Credit
+For a first public test deploy on a temporary Pages URL:
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+1. Push this repository to GitHub.
+2. In Cloudflare Pages, create a new project and connect the GitHub repository.
+3. Use these build settings:
+   - Framework preset: `Astro`
+   - Build command: `npm run build`
+   - Build output directory: `dist`
+4. Deploy to the default `*.pages.dev` URL first.
+5. Add a custom domain later if needed.
+
+## Notes
+
+- The project still uses some placeholder media and text that should be replaced with final portfolio content.
+- `portfolio_structure_summary.md` contains a structural summary of the current project.

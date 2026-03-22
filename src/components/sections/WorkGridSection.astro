@@ -1,0 +1,27 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import WorkCard from '../works/WorkCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	id: string;
+	eyebrow: string;
+	title: string;
+	copy: string;
+	works: CollectionEntry<'works'>[];
+	variant?: 'featured' | 'compact' | 'spotlight';
+}
+
+const { id, eyebrow, title, copy, works, variant = 'featured' } = Astro.props;
+---
+
+<section id={id} class:list={['content-section', `content-section-${variant}`]}>
+	<SectionHeader eyebrow={eyebrow} title={title} copy={copy} />
+	<div class:list={['work-grid', `work-grid-${variant}`]}>
+		{
+			works.map((work) => (
+				<WorkCard work={work} variant={variant} />
+			))
+		}
+	</div>
+</section>

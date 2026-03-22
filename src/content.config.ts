@@ -1,20 +1,31 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { z } from 'astro/zod';
 
-const blog = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
-	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
+const works = defineCollection({
+	loader: glob({ base: './src/content/works', pattern: '**/*.md' }),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
-			description: z.string(),
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
-			heroImage: z.optional(image()),
+			subtitle: z.string().optional(),
+			category: z.enum(['personal', 'commercial', 'tool']),
+			featured: z.boolean().default(false),
+			order: z.number(),
+			year: z.string(),
+			role: z.string(),
+			software: z.array(z.string()),
+			techniques: z.array(z.string()).default([]),
+			summary: z.string(),
+			projectContext: z.string().optional(),
+			officialLink: z.string().optional(),
+			officialLinkLabel: z.string().default('Official Video'),
+			contribution: z.array(z.string()).default([]),
+			gallery: z.array(image()).default([]),
+			additionalNotes: z.string().optional(),
+			thumbnail: image(),
+			video: z.string().optional(),
+			localVideo: z.string().optional(),
+			poster: z.string().optional(),
 		}),
 });
 
-export const collections = { blog };
+export const collections = { works };

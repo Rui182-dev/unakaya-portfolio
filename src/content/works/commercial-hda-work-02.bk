@@ -1,0 +1,22 @@
+---
+title: Commercial HDA Shot 02
+category: commercial
+featured: false
+order: 5
+year: '2025'
+role: FX Artist / HDA Support
+software:
+  - Houdini
+  - VEX
+  - Production Workflow
+techniques:
+  - Tool-assisted FX
+  - Parameter control
+  - Pipeline support
+summary: A second commercial placeholder for pipeline-aware FX or tool-supported shot work.
+thumbnail: ../../assets/placeholders/commercial-hda-02.jpg
+video: https://vimeo.com/000000005
+poster: /posters/commercial-hda-work-02.jpg
+---
+
+Use this page for the second commercial entry you want on the site.

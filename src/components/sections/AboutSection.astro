@@ -1,0 +1,30 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { site } from '../../data/site';
+import AboutPortrait from '../../assets/Personal/profile.JPG';
+---
+
+<section id="about" class="about-contact-section">
+	<div class="about-contact-copy">
+		<SectionHeader eyebrow="About / Contact" title="Focused Houdini FX work, available for studio roles and collaboration." />
+		<div class="text-panel about-contact-panel">
+			<p>
+				I'm a passionate CG artist, eager to contribute to the creation of stunning visual effects. With a focus on Houdini FX, I aim to merge my technical skills and creative vision to craft impactful visuals. Although my journey is just beginning, I come with experience in SFX makeup, sculpting, and painting.
+			</p>
+			<div class="contact-panel-inline">
+				<a class="button button-primary" href={`mailto:${site.email}`}>{site.email}</a>
+				<div class="contact-links">
+					<a class="button button-secondary" href={site.linkedin} target="_blank" rel="noreferrer">
+						LinkedIn
+					</a>
+					<a class="button button-secondary" href={site.instagram} target="_blank" rel="noreferrer">
+						Instagram
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="about-portrait-card">
+		<img src={AboutPortrait.src} alt="Urui Nakaya portfolio portrait" loading="lazy" />
+	</div>
+</section>

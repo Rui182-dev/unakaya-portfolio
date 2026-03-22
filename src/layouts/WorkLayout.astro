@@ -1,0 +1,225 @@
+---
+import MainLayout from './MainLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	work: CollectionEntry<'works'>;
+}
+
+const { work } = Astro.props;
+const { data } = work;
+const useLocalMedia = Boolean(data.localVideo);
+const localMediaIsGif = data.localVideo?.toLowerCase().endsWith('.gif') ?? false;
+const hasEmbedVideo = Boolean(data.video);
+const embedVideoUrl = data.video?.includes('vimeo.com/')
+	? data.video.replace('https://vimeo.com/', 'https://player.vimeo.com/video/')
+	: data.video?.includes('youtu.be/')
+		? data.video.replace('https://youtu.be/', 'https://www.youtube.com/embed/')
+		: data.video?.includes('youtube.com/watch?v=')
+			? data.video.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')
+			: data.video;
+const isCommercial = data.category === 'commercial';
+const isTool = data.category === 'tool';
+---
+
+<MainLayout title={`${data.title} | Work`} description={data.summary} image={data.thumbnail.src}>
+	{
+		isCommercial ? (
+			<article class="work-detail work-detail-commercial">
+				<header class="commercial-editorial-grid">
+					<div class="commercial-heading">
+						<p class="section-eyebrow">{data.category}</p>
+						{data.subtitle && <p class="work-detail-subtitle">{data.subtitle}</p>}
+						<h1>{data.title}</h1>
+						<p class="work-detail-summary">{data.summary}</p>
+						{data.projectContext && <p class="commercial-context">{data.projectContext}</p>}
+					</div>
+					<aside class="commercial-summary-card">
+						<div>
+							<p class="detail-label">Year</p>
+							<p>{data.year}</p>
+						</div>
+						<div>
+							<p class="detail-label">Role</p>
+							<p>{data.role}</p>
+						</div>
+						<div>
+							<p class="detail-label">Software</p>
+							<p>{data.software.join(' • ')}</p>
+						</div>
+						{data.techniques.length > 0 && (
+							<div>
+								<p class="detail-label">Techniques</p>
+								<p>{data.techniques.join(' • ')}</p>
+							</div>
+						)}
+						{data.officialLink && (
+							<a
+								class="button button-secondary commercial-link"
+								href={data.officialLink}
+								target="_blank"
+								rel="noreferrer"
+							>
+								{data.officialLinkLabel}
+							</a>
+						)}
+					</aside>
+				</header>
+
+				<div class="detail-media commercial-media commercial-hero-media">
+					{
+						useLocalMedia ? (
+							localMediaIsGif ? (
+								<img src={data.localVideo} alt={data.title} />
+							) : (
+								<video controls preload="metadata" playsinline poster={data.poster}>
+									<source src={data.localVideo} type="video/mp4" />
+								</video>
+							)
+						) : hasEmbedVideo ? (
+							<iframe
+								src={embedVideoUrl}
+								title={data.title}
+								loading="lazy"
+								allow="autoplay; fullscreen; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						) : (
+							<img src={data.thumbnail.src} alt={data.title} />
+						)
+					}
+				</div>
+
+				<div class="commercial-breakdown-grid">
+					<div class="detail-content commercial-content-flow">
+						<section class="commercial-text-block">
+							<h2 class="project-section-title">Breakdown</h2>
+							<slot />
+						</section>
+						{data.additionalNotes && (
+							<section class="commercial-text-block">
+								<h2 class="project-section-title">Additional Notes</h2>
+								<p>{data.additionalNotes}</p>
+							</section>
+						)}
+					</div>
+					<aside class="commercial-sidebar-stack">
+						{data.contribution.length > 0 && (
+							<section class="commercial-meta-card">
+								<h2 class="project-section-title">Contribution</h2>
+								<ul class="detail-list">
+									{data.contribution.map((item) => <li>{item}</li>)}
+								</ul>
+							</section>
+						)}
+					</aside>
+				</div>
+
+				{data.gallery.length > 0 && (
+					<section class="commercial-gallery-section">
+						<h2 class="project-section-title">Additional Stills</h2>
+						<div class="commercial-gallery-grid">
+							{data.gallery.map((image) => (
+								<figure class="commercial-gallery-item">
+									<img src={image.src} alt={data.title} loading="lazy" />
+								</figure>
+							))}
+						</div>
+					</section>
+				)}
+			</article>
+		) : (
+			<article class:list={["work-detail", isTool && "work-detail-tool"]}>
+				<div class="work-detail-hero">
+					<div>
+						<p class="section-eyebrow">{data.category}</p>
+						{data.subtitle && <p class="work-detail-subtitle">{data.subtitle}</p>}
+						<h1>{data.title}</h1>
+						<p class="work-detail-summary">{data.summary}</p>
+						{data.projectContext && <p class="work-detail-context">{data.projectContext}</p>}
+					</div>
+					<div class="work-detail-meta">
+						<div>
+							<p class="detail-label">Year</p>
+							<p>{data.year}</p>
+						</div>
+						<div>
+							<p class="detail-label">Role</p>
+							<p>{data.role}</p>
+						</div>
+						<div>
+							<p class="detail-label">Software</p>
+							<p>{data.software.join(' • ')}</p>
+						</div>
+						{data.techniques.length > 0 && (
+							<div>
+								<p class="detail-label">Techniques</p>
+								<p>{data.techniques.join(' • ')}</p>
+							</div>
+						)}
+					</div>
+				</div>
+
+				<div class="detail-media">
+					{
+						useLocalMedia ? (
+							localMediaIsGif ? (
+								<img src={data.localVideo} alt={data.title} />
+							) : (
+								<video controls preload="metadata" playsinline poster={data.poster}>
+									<source src={data.localVideo} type="video/mp4" />
+								</video>
+							)
+						) : hasEmbedVideo ? (
+							<iframe
+								src={embedVideoUrl}
+								title={data.title}
+								loading="lazy"
+								allow="autoplay; fullscreen; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						) : (
+							<img src={data.thumbnail.src} alt={data.title} />
+						)
+					}
+				</div>
+
+				<div class="detail-content">
+					<slot />
+				</div>
+
+				{(data.contribution.length > 0 || data.additionalNotes) && (
+					<div class="detail-extra-grid">
+						{data.contribution.length > 0 && (
+							<section class="detail-extra-card">
+								<h2 class="project-section-title">Contribution</h2>
+								<ul class="detail-list">
+									{data.contribution.map((item) => <li>{item}</li>)}
+								</ul>
+							</section>
+						)}
+						{data.additionalNotes && (
+							<section class="detail-extra-card">
+								<h2 class="project-section-title">Additional Notes</h2>
+								<p>{data.additionalNotes}</p>
+							</section>
+						)}
+					</div>
+				)}
+
+				{data.gallery.length > 0 && (
+					<section class="detail-gallery-section">
+						<h2 class="project-section-title">Additional Stills</h2>
+						<div class="detail-gallery-grid">
+							{data.gallery.map((image) => (
+								<figure class="detail-gallery-item">
+									<img src={image.src} alt={data.title} loading="lazy" />
+								</figure>
+							))}
+						</div>
+					</section>
+				)}
+			</article>
+		)
+	}
+</MainLayout>

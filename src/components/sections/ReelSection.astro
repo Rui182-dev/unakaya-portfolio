@@ -1,0 +1,45 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { site } from '../../data/site';
+
+const useLocalMedia = Boolean(site.reelLocalVideo);
+const localMediaIsGif = site.reelLocalVideo.toLowerCase().endsWith('.gif');
+---
+
+<section id="demoreel" class="content-section">
+	<div class="reel-header">
+		<SectionHeader eyebrow="Demoreel" title={site.reelTitle} copy="A concise overview of the strongest work on the site." />
+	</div>
+	<div class="reel-card reel-card-dominant">
+		<div class="reel-media reel-media-dominant">
+			{
+				useLocalMedia ? (
+					localMediaIsGif ? (
+						<img src={site.reelLocalVideo} alt={site.reelTitle} loading="lazy" />
+					) : (
+						<video controls preload="metadata" playsinline poster={site.reelPoster}>
+							<source src={site.reelLocalVideo} type="video/mp4" />
+						</video>
+					)
+				) : (
+					<iframe
+						src={site.reelEmbedUrl}
+						title={site.reelTitle}
+						loading="lazy"
+						allow="autoplay; fullscreen; picture-in-picture"
+						allowfullscreen
+					></iframe>
+				)
+			}
+		</div>
+		<div class="reel-sidebar">
+			<p class="detail-label">Overview</p>
+			<ul class="detail-list">
+				<li>Integrated FX workflows across RBD, Pyro, and FLIP</li>
+				<li>Large-scale FLIP water and whitewater simulation</li>
+				<li>Procedural lightning system</li>
+			</ul>
+			<a class="button button-secondary" href="#selected-work">Browse projects</a>
+		</div>
+	</div>
+</section>

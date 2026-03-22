@@ -1,0 +1,21 @@
+---
+import { site } from '../../data/site';
+
+interface Props {
+	ctaHref?: string;
+}
+
+const { ctaHref = '#demoreel' } = Astro.props;
+---
+
+<header class="site-header">
+	<nav class="site-nav">
+		<a class="site-brand" href="/">{site.title}</a>
+		<div class="site-nav-links">
+			<a href="/#demoreel">Reel</a>
+			<a href="/#selected-work">Work</a>
+			<a href="/#about">Contact</a>
+			<a class="nav-cta" href={ctaHref}>Watch Reel</a>
+		</div>
+	</nav>
+</header>

@@ -1,0 +1,19 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { site } from '../../data/site';
+---
+
+<section id="contact" class="compact-info-block">
+	<SectionHeader eyebrow="Contact" title="Available for studio roles, freelance projects, and collaboration." />
+	<div class="contact-panel">
+		<a class="button button-primary" href={`mailto:${site.email}`}>{site.email}</a>
+		<div class="contact-links">
+			<a class="button button-secondary" href={site.linkedin} target="_blank" rel="noreferrer">
+				LinkedIn
+			</a>
+			<a class="button button-secondary" href={site.instagram} target="_blank" rel="noreferrer">
+				Instagram
+			</a>
+		</div>
+	</div>
+</section>
