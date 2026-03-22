@@ -1,26 +1,28 @@
 ---
 import { site } from '../../data/site';
+import HeroBackground from '../../assets/Personal/back2.png';
 ---
 
-<section class="hero-section">
+<section class="hero-section" style={`--hero-image: url(${HeroBackground.src})`}>
 	<div class="hero-copy">
 		<p class="hero-eyebrow">{site.role}</p>
 		<h1>{site.title}</h1>
 		<p class="hero-focus">{site.focus}</p>
 		<p class="hero-summary">
-			FX Artist focused on Houdini simulations, including RBD, FLIP, and Pyro, with an emphasis on cinematic scale and procedural workflows.
+			Creating cinematic-scale FX (RBD, FLIP, Pyro) with a focus on efficient, production-ready workflows and tool development.
 		</p>
 		<div class="hero-actions">
 			<a class="button button-primary" href="#demoreel">Watch Demo Reel</a>
-			<a class="button button-secondary" href="#selected-work">View Selected Work</a>
+			<a class="button button-secondary" href="#selected-work">Explore Work</a>
 		</div>
 	</div>
 	<div class="hero-panel">
-		<p class="hero-panel-label">Selected Work</p>
+		<p class="hero-panel-label">Skills</p>
 		<ul class="hero-list">
-			<li>Selected personal FX work</li>
-			<li>Commercial and HDA projects</li>
-			<li>Tool-driven R&amp;D work</li>
+			<li>RBD/FLIP/Pyro</li>
+			<li>VEX/Python</li>
+			<li>Procedural modeling</li>
+			<li>HDA Development</li>
 		</ul>
 	</div>
 </section>
