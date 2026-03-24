@@ -11,7 +11,7 @@ const { data, id } = work;
 const tags = [...data.software, ...data.techniques];
 ---
 
-<article class:list={['work-card', `work-card-${variant}`]}>
+<article class:list={['work-card', `work-card-${variant}`, `work-card-${data.category}`]}>
 	<a class="work-card-link" href={`/works/${id}/`}>
 		<div class="work-card-image">
 			<img src={data.thumbnail.src} alt={data.title} loading="lazy" />
@@ -19,8 +19,8 @@ const tags = [...data.software, ...data.techniques];
 		<div class="work-card-body">
 			<p class="detail-label">{data.category}</p>
 			{data.subtitle && <p class="work-subtitle">{data.subtitle}</p>}
-			<h3>{data.title}</h3>
-			<p>{data.summary}</p>
+			<h3 class="work-card-title">{data.title}</h3>
+			<p class="work-card-summary">{data.summary}</p>
 			<ul class="tag-list">
 				{tags.map((item) => <li>{item}</li>)}
 			</ul>

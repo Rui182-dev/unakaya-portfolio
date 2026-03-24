@@ -242,14 +242,17 @@ The homepage is assembled from:
    - Uses `personalWorks`
    - Variant: `featured`
    - Largest work preview section on the homepage
+   - Uses a horizontal scrolling card row with snap behavior when multiple featured entries are present
+   - Desktop controls include left/right scroll buttons for the featured row
 4. `WorkGridSection` for commercial / HDA work
    - Uses `commercialWorks`
    - Variant: `compact`
    - Secondary preview section with reduced visual weight
 5. `WorkGridSection` for tool / R&D
    - Uses `toolWorks`
-   - Variant: `spotlight`
-   - Single horizontal spotlight block
+   - Variant: `featured`
+   - Uses the same horizontal carousel shell as the selected personal work section
+   - Tool entries are displayed one at a time and navigated with the carousel arrows
 6. `AboutSection`
    - Combined About / Contact closing section
    - Renders short bio, contact actions, and a portrait image

@@ -13,15 +13,152 @@ interface Props {
 }
 
 const { id, eyebrow, title, copy, works, variant = 'featured' } = Astro.props;
+const isFeatured = variant === 'featured';
+const isToolCarousel = isFeatured && works.length > 0 && works.every((work) => work.data.category === 'tool');
 ---
 
 <section id={id} class:list={['content-section', `content-section-${variant}`]}>
 	<SectionHeader eyebrow={eyebrow} title={title} copy={copy} />
-	<div class:list={['work-grid', `work-grid-${variant}`]}>
-		{
-			works.map((work) => (
-				<WorkCard work={work} variant={variant} />
-			))
-		}
-	</div>
+	{
+		isFeatured ? (
+			<div class:list={['featured-carousel-shell', isToolCarousel && 'featured-carousel-shell-single']}>
+				<button class="carousel-button carousel-button-prev" type="button" aria-label="Scroll left" data-carousel-prev={id}>
+					<span aria-hidden="true">&larr;</span>
+				</button>
+				<div class:list={['work-grid', `work-grid-${variant}`, isToolCarousel && 'work-grid-featured-single']} data-carousel-row={id}>
+					{
+						works.map((work) => (
+							<WorkCard work={work} variant={variant} />
+						))
+					}
+				</div>
+				<button class="carousel-button carousel-button-next" type="button" aria-label="Scroll right" data-carousel-next={id}>
+					<span aria-hidden="true">&rarr;</span>
+				</button>
+				<div class="carousel-dots" aria-label="Featured work pages" data-carousel-dots={id}></div>
+			</div>
+		) : (
+			<div class:list={['work-grid', `work-grid-${variant}`]}>
+				{
+					works.map((work) => (
+						<WorkCard work={work} variant={variant} />
+					))
+				}
+			</div>
+		)
+	}
 </section>
+
+{
+	isFeatured && (
+		<script is:inline>
+			(() => {
+				const initCarousels = () => {
+					const rows = document.querySelectorAll('[data-carousel-row]');
+
+					rows.forEach((row) => {
+						if (row.dataset.carouselReady === 'true') return;
+						row.dataset.carouselReady = 'true';
+
+						const id = row.getAttribute('data-carousel-row');
+						const prev = document.querySelector(`[data-carousel-prev="${id}"]`);
+						const next = document.querySelector(`[data-carousel-next="${id}"]`);
+						const dots = document.querySelector(`[data-carousel-dots="${id}"]`);
+						const cards = Array.from(row.children);
+						const isSingleCardCarousel = row.classList.contains('work-grid-featured-single');
+						let activeIndex = 0;
+
+						const getPageCount = () => {
+							if (isSingleCardCarousel) return Math.max(1, cards.length);
+							return Math.max(1, Math.round(row.scrollWidth / row.clientWidth));
+						};
+
+						const renderDots = () => {
+							if (!dots) return;
+							dots.innerHTML = '';
+							const pageCount = getPageCount();
+							const currentIndex = isSingleCardCarousel ? activeIndex : (() => {
+								const maxScroll = Math.max(1, row.scrollWidth - row.clientWidth);
+								return Math.min(pageCount - 1, Math.round((row.scrollLeft / maxScroll) * (pageCount - 1)));
+							})();
+
+							for (let index = 0; index < pageCount; index += 1) {
+								const dot = document.createElement('button');
+								dot.type = 'button';
+								dot.className = `carousel-dot${index === currentIndex ? ' is-active' : ''}`;
+								dot.setAttribute('aria-label', `Go to page ${index + 1}`);
+								dot.addEventListener('click', () => goToPage(index));
+								dots.appendChild(dot);
+							}
+						};
+
+						const syncSingleCardState = () => {
+							if (!isSingleCardCarousel) return;
+							cards.forEach((card, index) => {
+								card.classList.toggle('is-carousel-hidden', index !== activeIndex);
+							});
+						};
+
+						const goToPage = (index) => {
+							if (isSingleCardCarousel) {
+								activeIndex = Math.max(0, Math.min(cards.length - 1, index));
+								syncSingleCardState();
+								renderDots();
+								return;
+							}
+
+							const pageCount = getPageCount();
+							row.scrollTo({
+								left: (row.scrollWidth - row.clientWidth) * (index / Math.max(1, pageCount - 1)),
+								behavior: 'smooth',
+							});
+						};
+
+						prev?.addEventListener('click', () => {
+							if (isSingleCardCarousel) {
+								goToPage(activeIndex - 1);
+								return;
+							}
+
+							const pageCount = getPageCount();
+							const maxScroll = Math.max(1, row.scrollWidth - row.clientWidth);
+							const activePage = Math.min(pageCount - 1, Math.round((row.scrollLeft / maxScroll) * (pageCount - 1)));
+							goToPage(activePage - 1);
+						});
+
+						next?.addEventListener('click', () => {
+							if (isSingleCardCarousel) {
+								goToPage(activeIndex + 1);
+								return;
+							}
+
+							const pageCount = getPageCount();
+							const maxScroll = Math.max(1, row.scrollWidth - row.clientWidth);
+							const activePage = Math.min(pageCount - 1, Math.round((row.scrollLeft / maxScroll) * (pageCount - 1)));
+							goToPage(activePage + 1);
+						});
+
+						if (isSingleCardCarousel) {
+							syncSingleCardState();
+							renderDots();
+							return;
+						}
+
+						row.addEventListener('scroll', () => {
+							window.requestAnimationFrame(renderDots);
+						});
+
+						window.addEventListener('resize', renderDots);
+						renderDots();
+					});
+				};
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', initCarousels, { once: true });
+				} else {
+					initCarousels();
+				}
+			})();
+		</script>
+	)
+}
