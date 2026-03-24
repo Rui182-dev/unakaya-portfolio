@@ -10,7 +10,7 @@ export const site = {
 	reelTitle: 'Houdini FX Demoreel',
 	reelSummary:
 		'A focused reel featuring personal FX studies, commercial HDA-related work, and a tool-driven R&D piece.',
-	reelEmbedUrl: 'https://player.vimeo.com/video/938775245?title=0&byline=0&portrait=0',
+	reelEmbedUrl: 'https://player.vimeo.com/video/1176516597?title=0&byline=0&portrait=0',
 	reelLocalVideo: '',
 	reelPoster: '/posters/demoreel-poster.jpg',
 };
