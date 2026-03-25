@@ -29,7 +29,7 @@ gallery:
   - ../../assets/BlueReel_stills/5_output.png
 localVideo: /media/works/BlueReel/shot01_full.mp4
 video: https://vimeo.com/000000004
-poster: /posters/commercial-hda-work-01.png
+poster: /posters/commercial-hda-work-01.jpg
 additionalNotes: Responsible for FX work, including simulation, setup, and gun animation. Character and environment assets were provided.
 ---
 
