@@ -37,7 +37,7 @@ additionalNotes: Responsible for FX work, including simulation, setup, and gun a
 
 For this project, I worked on several FX elements directly in Houdini, including rock interaction, energy curves, sparks, RBD simulation, FLIP simulation, and smoke. I also handled gun and rock animation where the shot required additional support for timing and integration.
 
-<video autoplay muted loop playsinline controls preload="metadata">
+<video autoplay muted loop playsinline preload="metadata">
   <source src="/media/works/BlueReel/bd00.mp4" type="video/mp4" />
 </video>
 
@@ -45,14 +45,14 @@ For this project, I worked on several FX elements directly in Houdini, including
 
 I developed a Houdini lightning HDA for this sequence to support two related effects: a surface-traveling lightning treatment across the character body, and a secondary strike connecting the body to the ground. The setup was designed to stay flexible enough for shot-level adjustment while remaining practical for production use.
 
-<video autoplay muted loop playsinline controls preload="metadata">
+<video autoplay muted loop playsinline preload="metadata">
   <source src="/media/works/BlueReel/bd02.mp4" type="video/mp4" />
 </video>
 
-<video autoplay muted loop playsinline controls preload="metadata">
+<video autoplay muted loop playsinline preload="metadata">
   <source src="/media/works/BlueReel/bd03.mp4" type="video/mp4" />
 </video>
 
-<video autoplay muted loop playsinline controls preload="metadata">
+<video autoplay muted loop playsinline preload="metadata">
   <source src="/media/works/BlueReel/bd04.mp4" type="video/mp4" />
 </video>
