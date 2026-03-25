@@ -19,12 +19,13 @@ const embedVideoUrl = data.video?.includes('vimeo.com/')
 			? data.video.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')
 			: data.video;
 const isCommercial = data.category === 'commercial';
+const useEditorialLayout = isCommercial || data.layoutVariant === 'editorial';
 const isTool = data.category === 'tool';
 ---
 
 <MainLayout title={`${data.title} | Work`} description={data.summary} image={data.thumbnail.src}>
 	{
-		isCommercial ? (
+		useEditorialLayout ? (
 			<article class="work-detail work-detail-commercial">
 				<header class="commercial-editorial-grid">
 					<div class="commercial-heading">
@@ -103,6 +104,12 @@ const isTool = data.category === 'tool';
 							<h2 class="project-section-title">Breakdown</h2>
 							<slot />
 						</section>
+						{!isCommercial && data.technicalFocus && (
+							<section class="commercial-text-block">
+								<h2 class="project-section-title">Technical Focus</h2>
+								<p>{data.technicalFocus}</p>
+							</section>
+						)}
 						{data.additionalNotes && (
 							<section class="commercial-text-block">
 								<h2 class="project-section-title">Additional Notes</h2>
@@ -173,7 +180,14 @@ const isTool = data.category === 'tool';
 							localMediaIsGif ? (
 								<img src={data.localVideo} alt={data.title} />
 							) : (
-								<video controls preload="metadata" playsinline poster={data.poster}>
+								<video
+									autoplay
+									muted
+									loop
+									preload="metadata"
+									playsinline
+									poster={data.poster}
+								>
 									<source src={data.localVideo} type="video/mp4" />
 								</video>
 							)

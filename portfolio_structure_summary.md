@@ -76,6 +76,7 @@ The `works` schema includes:
 - `subtitle`
 - `category`
   - enum: `personal`, `commercial`, `tool`
+- `layoutVariant`
 - `featured`
 - `order`
 - `year`
@@ -86,6 +87,7 @@ The `works` schema includes:
 - `projectContext`
 - `officialLink`
 - `officialLinkLabel`
+- `technicalFocus`
 - `contribution`
 - `gallery`
 - `additionalNotes`
@@ -198,7 +200,13 @@ The homepage is assembled from:
   - main breakdown content column
   - contribution sidebar
   - optional still gallery.
-- Non-commercial detail pages can also render optional structured fields when present:
+- Non-commercial entries can opt into the same editorial shell with `layoutVariant: editorial`.
+- Editorial personal pages use the markdown body as the main breakdown section and can additionally render:
+  - technical focus
+  - additional notes
+  - contribution sidebar
+  - additional stills gallery.
+- Non-editorial detail pages can also render optional structured fields when present:
   - project context under the hero summary
   - contribution block
   - additional notes block

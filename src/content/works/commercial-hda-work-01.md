@@ -15,7 +15,7 @@ techniques:
 summary: Commercial trailer work with a production-focused FX workflow and tool-assisted setup support.
 projectContext: I contributed as a Houdini artist to this cinematic trailer for ESL, working on FX elements such as lightning strikes, energy curves, and RBD simulations.
 officialLink: https://youtu.be/5r9fjXH8Q-k?si=FXJ-AQaCmHx2VkJG
-officialLinkLabel: Official Project Link
+officialLinkLabel: Official Trailer Link
 contribution:
   - Built and adjusted Houdini-based setups for shot-specific needs
   - Supported production-friendly FX iteration through reusable controls
