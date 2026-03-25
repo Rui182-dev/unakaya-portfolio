@@ -72,7 +72,14 @@ const isTool = data.category === 'tool';
 							localMediaIsGif ? (
 								<img src={data.localVideo} alt={data.title} />
 							) : (
-								<video controls preload="metadata" playsinline poster={data.poster}>
+								<video
+									autoplay
+									muted
+									loop
+									preload="metadata"
+									playsinline
+									poster={data.poster}
+								>
 									<source src={data.localVideo} type="video/mp4" />
 								</video>
 							)

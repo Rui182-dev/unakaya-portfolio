@@ -729,6 +729,24 @@ ol {
 	margin-top: 1rem;
 }
 
+.detail-content p + video,
+.detail-content p + figure,
+.detail-content ul + video,
+.detail-content ul + figure,
+.commercial-text-block p + video,
+.commercial-text-block p + figure,
+.commercial-text-block ul + video,
+.commercial-text-block ul + figure {
+	margin-top: 1.25rem;
+}
+
+.detail-content video + p,
+.detail-content figure + p,
+.commercial-text-block video + p,
+.commercial-text-block figure + p {
+	margin-top: 1.25rem;
+}
+
 .detail-content ul {
 	padding-left: 1.2rem;
 }

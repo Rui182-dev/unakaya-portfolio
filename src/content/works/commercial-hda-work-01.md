@@ -27,18 +27,32 @@ gallery:
   - ../../assets/BlueReel_stills/3_output.png
   - ../../assets/BlueReel_stills/4_output.png
   - ../../assets/BlueReel_stills/5_output.png
-localVideo: /media/works/BlueReel/output.gif
+localVideo: /media/works/BlueReel/shot01_full.mp4
 video: https://vimeo.com/000000004
-poster: /posters/commercial-hda-work-01.jpg
+poster: /posters/commercial-hda-work-01.png
 additionalNotes: Responsible for FX work, including simulation, setup, and gun animation. Character and environment assets were provided.
 ---
 
-I created the rocks, energy curve, sparks, RBD, Flip simulations, and smoke, and also animated the rocks and guns in Houdini.
+## Shot Work
 
-![bd01](/media/works/BlueReel/URN_FX1_001_0010_fx_v019.gif)
+For this project, I worked on several FX elements directly in Houdini, including rock interaction, energy curves, sparks, RBD simulation, FLIP simulation, and smoke. I also handled gun and rock animation where the shot required additional support for timing and integration.
 
+<video autoplay muted loop playsinline controls preload="metadata">
+  <source src="/media/works/BlueReel/bd00.mp4" type="video/mp4" />
+</video>
 
+## Lightning HDA Development
 
-I created a lightning HDA in Houdini featuring two effects: one that spreads across the character's body and another that shoots from the character's body to the ground.
+I developed a Houdini lightning HDA for this sequence to support two related effects: a surface-traveling lightning treatment across the character body, and a secondary strike connecting the body to the ground. The setup was designed to stay flexible enough for shot-level adjustment while remaining practical for production use.
 
-![bd02](/media/works/BlueReel/URN_FX2_001_0010_fx_v003.gif)
+<video autoplay muted loop playsinline controls preload="metadata">
+  <source src="/media/works/BlueReel/bd02.mp4" type="video/mp4" />
+</video>
+
+<video autoplay muted loop playsinline controls preload="metadata">
+  <source src="/media/works/BlueReel/bd03.mp4" type="video/mp4" />
+</video>
+
+<video autoplay muted loop playsinline controls preload="metadata">
+  <source src="/media/works/BlueReel/bd04.mp4" type="video/mp4" />
+</video>
