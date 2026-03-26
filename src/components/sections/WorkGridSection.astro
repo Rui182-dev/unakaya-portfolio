@@ -42,6 +42,7 @@ const isToolCarousel = isFeatured && works.length > 0 && works.every((work) => w
 			</button>
 		)}
 		<div class="carousel-dots" aria-label="Featured work pages" data-carousel-dots={id}></div>
+		{works.length > 1 && <div class="carousel-swipe-hint" aria-hidden="true" data-carousel-hint={id}>Swipe</div>}
 	</div>
 </section>
 
@@ -60,6 +61,8 @@ const isToolCarousel = isFeatured && works.length > 0 && works.every((work) => w
 				const prev = document.querySelector(`[data-carousel-prev="${id}"]`);
 				const next = document.querySelector(`[data-carousel-next="${id}"]`);
 				const dots = document.querySelector(`[data-carousel-dots="${id}"]`);
+				const hint = document.querySelector(`[data-carousel-hint="${id}"]`);
+				const shell = row.closest('.featured-carousel-shell');
 				const cards = Array.from(row.children);
 				const isToolDesktopSingle = row.classList.contains('work-grid-featured-single');
 				let activeIndex = 0;
@@ -128,8 +131,20 @@ const isToolCarousel = isFeatured && works.length > 0 && works.every((work) => w
 					});
 				};
 
+				const resetSwipeOffset = () => {
+					row.style.removeProperty('--mobile-swipe-offset');
+					row.classList.remove('is-dragging');
+				};
+
+				const hideHint = () => {
+					if (cards.length <= 1) return;
+					shell?.classList.add('is-swipe-hint-hidden');
+					hint?.setAttribute('hidden', 'true');
+				};
+
 				const syncMode = () => {
 					activeIndex = Math.max(0, Math.min(cards.length - 1, activeIndex));
+					resetSwipeOffset();
 					syncSingleCardState();
 					renderDots();
 				};
@@ -166,17 +181,29 @@ const isToolCarousel = isFeatured && works.length > 0 && works.every((work) => w
 					if (!isSingleCardMode()) return;
 					touchStartX = event.changedTouches[0]?.clientX ?? 0;
 					touchDeltaX = 0;
+					row.classList.add('is-dragging');
+					hideHint();
 				}, { passive: true });
 
 				row.addEventListener('touchmove', (event) => {
 					if (!isSingleCardMode()) return;
 					touchDeltaX = (event.changedTouches[0]?.clientX ?? 0) - touchStartX;
+					const clampedOffset = Math.max(-36, Math.min(36, touchDeltaX * 0.35));
+					row.style.setProperty('--mobile-swipe-offset', `${clampedOffset}px`);
 				}, { passive: true });
 
 				row.addEventListener('touchend', () => {
 					if (!isSingleCardMode()) return;
-					if (Math.abs(touchDeltaX) < 40) return;
-					goToPage(activeIndex + (touchDeltaX < 0 ? 1 : -1));
+					const movedEnough = Math.abs(touchDeltaX) >= 40;
+					resetSwipeOffset();
+					if (movedEnough) {
+						goToPage(activeIndex + (touchDeltaX < 0 ? 1 : -1));
+					}
+					touchDeltaX = 0;
+				}, { passive: true });
+
+				row.addEventListener('touchcancel', () => {
+					resetSwipeOffset();
 					touchDeltaX = 0;
 				}, { passive: true });
 

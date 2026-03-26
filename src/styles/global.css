@@ -391,6 +391,10 @@ ol {
 	margin-top: 1rem;
 }
 
+.carousel-swipe-hint {
+	display: none;
+}
+
 .carousel-dot {
 	width: 0.55rem;
 	height: 0.55rem;
@@ -871,12 +875,47 @@ ol {
 		margin-top: 0.85rem;
 	}
 
+	.carousel-swipe-hint {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		left: 50%;
+		bottom: 3rem;
+		transform: translateX(-50%);
+		padding: 0.35rem 0.7rem;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(11, 13, 16, 0.42);
+		backdrop-filter: blur(10px);
+		color: rgba(243, 245, 247, 0.82);
+		font-size: 0.72rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		pointer-events: none;
+		transition: opacity 180ms ease, transform 180ms ease;
+	}
+
+	.featured-carousel-shell.is-swipe-hint-hidden .carousel-swipe-hint {
+		opacity: 0;
+		transform: translateX(-50%) translateY(0.2rem);
+	}
+
 	.work-grid-featured,
 	.work-grid-compact,
 	.work-grid-spotlight {
 		display: block;
 		overflow: hidden;
 		padding: 0;
+		transform: translateX(var(--mobile-swipe-offset, 0));
+		transition: transform 180ms ease;
+		touch-action: pan-y;
+	}
+
+	.work-grid-featured.is-dragging,
+	.work-grid-compact.is-dragging,
+	.work-grid-spotlight.is-dragging {
+		transition: none;
 	}
 
 	.work-grid-featured-single {
