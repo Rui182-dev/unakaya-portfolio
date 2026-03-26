@@ -1075,9 +1075,22 @@ ol {
 	gap: 1rem;
 }
 
+.commercial-link-group {
+	display: grid;
+	gap: 0.55rem;
+	margin-top: 0.5rem;
+}
+
 .commercial-link {
 	width: fit-content;
-	margin-top: 0.5rem;
+	margin-top: 0;
+}
+
+.commercial-link-note {
+	font-size: 0.92rem;
+	line-height: 1.5;
+	color: var(--muted);
+	max-width: 24rem;
 }
 
 .commercial-hero-media {

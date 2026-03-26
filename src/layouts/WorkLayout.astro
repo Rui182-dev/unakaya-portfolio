@@ -19,6 +19,7 @@ const embedVideoUrl = data.video?.includes('vimeo.com/')
 			? data.video.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')
 			: data.video;
 const isCommercial = data.category === 'commercial';
+const hasOfficialLink = Boolean(data.officialLink && data.officialLink !== 'https://');
 const useEditorialLayout = isCommercial || data.layoutVariant === 'editorial';
 const isTool = data.category === 'tool';
 ---
@@ -54,15 +55,20 @@ const isTool = data.category === 'tool';
 								<p>{data.techniques.join(' • ')}</p>
 							</div>
 						)}
-						{data.officialLink && (
-							<a
-								class="button button-secondary commercial-link"
-								href={data.officialLink}
-								target="_blank"
-								rel="noreferrer"
-							>
-								{data.officialLinkLabel}
-							</a>
+						{(hasOfficialLink || data.officialLinkNote) && (
+							<div class="commercial-link-group">
+								{hasOfficialLink && (
+									<a
+										class="button button-secondary commercial-link"
+										href={data.officialLink}
+										target="_blank"
+										rel="noreferrer"
+									>
+										{data.officialLinkLabel}
+									</a>
+								)}
+								{data.officialLinkNote && <p class="commercial-link-note">{data.officialLinkNote}</p>}
+							</div>
 						)}
 					</aside>
 				</header>

@@ -19,6 +19,7 @@ const works = defineCollection({
 			projectContext: z.string().optional(),
 			officialLink: z.string().optional(),
 			officialLinkLabel: z.string().default('Official Video'),
+			officialLinkNote: z.string().optional(),
 			technicalFocus: z.string().optional(),
 			contribution: z.array(z.string()).default([]),
 			gallery: z.array(image()).default([]),

@@ -4,7 +4,7 @@ export const site = {
 		'FX Artist portfolio focused on Houdini, simulation, and procedural workflows for film, animation, and cinematic work.',
 	role: 'FX Artist',
 	focus: 'Procedural FX Artist — Houdini/Nuke',
-	email: 'nakayaurui@gmail.com',
+	email: 'urui.vfx@gmail.com',
 	linkedin: 'https://www.linkedin.com/in/urui-nakaya',
 	instagram: 'https://www.instagram.com/nakayaurui/',
 	reelTitle: 'Houdini FX Demoreel',

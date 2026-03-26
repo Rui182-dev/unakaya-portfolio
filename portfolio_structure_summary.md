@@ -87,6 +87,7 @@ The `works` schema includes:
 - `projectContext`
 - `officialLink`
 - `officialLinkLabel`
+- `officialLinkNote`
 - `technicalFocus`
 - `contribution`
 - `gallery`
