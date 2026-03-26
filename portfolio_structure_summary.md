@@ -256,6 +256,7 @@ The homepage is assembled from:
    - Uses `commercialWorks`
    - Variant: `compact`
    - Secondary preview section with reduced visual weight
+  - On mobile, it switches to a one-card-at-a-time swipe carousel with dot indicators
 5. `WorkGridSection` for tool / R&D
    - Uses `toolWorks`
    - Variant: `featured`

@@ -322,6 +322,11 @@ ol {
 	position: relative;
 }
 
+.content-section-compact .carousel-dots,
+.content-section-spotlight .carousel-dots {
+	display: none;
+}
+
 .carousel-button {
 	position: absolute;
 	top: 50%;
@@ -851,8 +856,6 @@ ol {
 	}
 
 	.work-grid,
-	.work-grid-compact,
-	.work-grid-spotlight,
 	.detail-gallery-grid {
 		grid-template-columns: 1fr;
 	}
@@ -861,39 +864,49 @@ ol {
 		display: none;
 	}
 
-	.carousel-dots {
+	.carousel-dots,
+	.content-section-compact .carousel-dots,
+	.content-section-spotlight .carousel-dots {
+		display: flex;
 		margin-top: 0.85rem;
 	}
 
-	.work-grid-featured {
-		padding: 0 0 0.35rem;
+	.work-grid-featured,
+	.work-grid-compact,
+	.work-grid-spotlight {
+		display: block;
+		overflow: hidden;
+		padding: 0;
 	}
 
 	.work-grid-featured-single {
 		padding: 0;
 	}
 
-	.work-card-featured {
-		flex-basis: 85vw;
-		min-width: 85vw;
-	}
-
-	.work-card-featured.work-card-tool {
-		flex-basis: 85vw;
-		min-width: 85vw;
-	}
-
-	.work-grid-featured-single .work-card-featured.work-card-tool {
-		flex-basis: 100%;
+	.work-grid-featured .work-card,
+	.work-grid-compact .work-card,
+	.work-grid-spotlight .work-card {
+		width: 100%;
 		min-width: 100%;
+		margin: 0;
 	}
 
-	.work-card-featured.work-card-tool .work-card-link {
+	.work-grid-featured .work-card.is-carousel-hidden,
+	.work-grid-compact .work-card.is-carousel-hidden,
+	.work-grid-spotlight .work-card.is-carousel-hidden {
+		display: none;
+	}
+
+	.work-card-featured.work-card-tool .work-card-link,
+	.work-card-compact.work-card-tool .work-card-link,
+	.work-card-spotlight.work-card-tool .work-card-link {
 		grid-template-columns: 1fr;
 		grid-template-rows: auto 1fr;
 	}
 
-	.work-card-featured.work-card-tool .work-card-image {
+	.work-card-featured.work-card-tool .work-card-image,
+	.work-card-compact.work-card-tool .work-card-image,
+	.work-card-spotlight.work-card-tool .work-card-image {
 		height: auto;
 		aspect-ratio: 16 / 9;
 	}
