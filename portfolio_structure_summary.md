@@ -75,7 +75,7 @@ The `works` schema includes:
 - `title`
 - `subtitle`
 - `category`
-  - enum: `personal`, `commercial`, `tool`
+  - enum: `personal`, `commercial`, `team`, `tool`
 - `layoutVariant`
 - `featured`
 - `order`
@@ -228,7 +228,7 @@ The homepage is assembled from:
 - Sorts entries by `data.order`
 - Splits entries into:
   - `personalWorks`
-  - `commercialWorks`
+  - `commercialWorks` (commercial + team entries)
   - `toolWorks`
 
 ### Sections in order
@@ -253,10 +253,11 @@ The homepage is assembled from:
    - Largest work preview section on the homepage
    - Uses a horizontal scrolling card row with snap behavior when multiple featured entries are present
    - Desktop controls include left/right scroll buttons for the featured row
-4. `WorkGridSection` for commercial / HDA work
+4. `WorkGridSection` for commercial / team work
    - Uses `commercialWorks`
    - Variant: `compact`
    - Secondary preview section with reduced visual weight
+   - Includes production contributions, team projects, and HDA-oriented work
   - On mobile, it switches to a one-card-at-a-time swipe carousel with dot indicators
 5. `WorkGridSection` for tool / R&D
    - Uses `toolWorks`

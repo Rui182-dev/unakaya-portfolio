@@ -1,10 +1,10 @@
 ---
 title: Matrix Reimagined
 subtitle: Team Project
-category: personal
+category: team
 layoutVariant: editorial
 featured: true
-order: 4
+order: 5
 year: '2026'
 role: FX Artist / Compositing Artist
 software:

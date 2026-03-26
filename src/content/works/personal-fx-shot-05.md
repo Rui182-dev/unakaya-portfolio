@@ -1,6 +1,6 @@
 ---
-title: Personal FX Placeholder 05
-subtitle: Demoreel Shot 05
+title: Personal FX Placeholder 00
+subtitle: Demoreel Shot 00
 category: personal
 layoutVariant: editorial
 featured: true

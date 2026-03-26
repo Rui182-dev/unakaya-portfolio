@@ -9,7 +9,7 @@ import AboutSection from '../components/sections/AboutSection.astro';
 const works = (await getCollection('works')).sort((a, b) => a.data.order - b.data.order);
 
 const personalWorks = works.filter((work) => work.data.category === 'personal');
-const commercialWorks = works.filter((work) => work.data.category === 'commercial');
+const commercialWorks = works.filter((work) => ['commercial', 'team'].includes(work.data.category));
 const toolWorks = works.filter((work) => work.data.category === 'tool');
 ---
 
@@ -26,9 +26,9 @@ const toolWorks = works.filter((work) => work.data.category === 'tool');
 	/>
 	<WorkGridSection
 		id="commercial-work"
-		eyebrow="Commercial Work"
-		title="Production and HDA Work"
-		copy="Selected contributions to production projects, including HDA-driven workflows."
+		eyebrow="Commercial Work / Team Project"
+		title="Production and Team Projects"
+		copy="Selected production contributions, team projects, and HDA-driven workflows."
 		works={commercialWorks}
 		variant="compact"
 	/>
