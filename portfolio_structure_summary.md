@@ -254,7 +254,7 @@ The homepage is assembled from:
    - Variant: `featured`
    - Largest work preview section on the homepage
    - Uses a horizontal scrolling card row with snap behavior when multiple featured entries are present
-   - Desktop controls include left/right scroll buttons for the featured row
+   - Desktop controls include left/right scroll buttons for the featured row only when more than three items are present
 4. `WorkGridSection` for commercial / team work
    - Uses `commercialWorks`
    - Variant: `compact`

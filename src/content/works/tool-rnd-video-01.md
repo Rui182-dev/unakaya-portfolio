@@ -3,7 +3,7 @@ title: Houdini Path Replace Tool
 subtitle: Utility Script
 category: tool
 featured: false
-order: 6
+order: 7
 year: '2024'
 role: Tool Development
 software:

@@ -1,10 +1,10 @@
 ---
 title: Layered Rain System Study
-subtitle: Finished R&D Shot
+subtitle: R&D Study
 category: rnd
 layoutVariant: editorial
 featured: false
-order: 7
+order: 6
 year: '2026'
 role: FX Artist / R&D
 software:
@@ -14,40 +14,38 @@ techniques:
   - Atmospheric FX
   - Smoke layering
   - Rough lookdev
-summary: A finished Houdini R&D shot built around a layered rain system for a moving car, combining three particle layers, two smoke layers, and rough lookdev.
-projectContext: This project started as an R&D study for a controllable rain setup, then was pushed through to a finished presentation shot. The goal was to build readable rainfall, tire interaction, and atmospheric depth around the car while keeping the overall image cohesive.
+summary: A Houdini R&D study built around a layered rain system for a moving car, combining three rain particle layers, two smoke layers, and rough Solaris lookdev.
+projectContext: This project is an R&D study focused on building a controllable layered rain setup and testing how particles and VDB-based atmosphere behave inside Solaris. The goal was to explore readable heavy rainfall, tire interaction, and atmospheric depth around the car while developing a workable lookdev process.
 contribution:
   - Built the rain setup with three distinct particle layers for depth and scale variation
   - Added two smoke layers to support road spray and atmospheric separation
-  - Developed rough lookdev and rendered the final presentation shot
+  - Developed rough lookdev in Solaris
 technicalFocus: The main challenge was separating the rain into controllable layers so foreground streaks, mid-range rainfall, and broader environmental rain could be tuned independently. Additional smoke layers were then used to support motion and depth without overwhelming the vehicle silhouette.
 gallery:
   - ../../assets/Rain_RD/car-rnd.jpg
-additionalNotes: Although this began as an R&D exercise, the study was carried through as a finished shot so the rain system could be evaluated in a presentational context rather than only as isolated tests.
+additionalNotes: This is still an R&D study rather than a finished production shot. The value of the project is in the layered setup, Solaris testing, and iteration process used to evaluate particles, volumes, and lookdev together.
 thumbnail: ../../assets/Rain_RD/car-rnd_thumb.jpg
 localVideo: /media/RD/Rain_RD/car_rain.mp4
 poster: /posters/car_rain.jpg
 ---
 
-## Final Shot
+## USD VDB Setup
 
-The final presentation focuses on a night-driving setup where the rain needs to feel layered, directional, and integrated with the motion of the car. I used three particle layers to separate the broader rainfall from the closer streaks and the denser interaction around the vehicle body.
+For this study, I built an HDA that prepares the VDB caches into a USD setup with both render and proxy branches. The render branch keeps the full volume data for lookdev and final renders, while the proxy branch provides a lighter bounding-box representation for faster work inside Solaris. That made iteration much easier, because the setup could stay responsive in layout and lighting without giving up the heavier render version when needed.
 
-<video autoplay muted loop playsinline preload="metadata" poster="/posters/car_rain.jpg">
-  <source src="/media/RD/Rain_RD/car_rain.mp4" type="video/mp4" />
-</video>
+<img src="/media/RD/Rain_RD/vdb-usd.jpg" alt="HDA setup with render and proxy branches for VDB USD data" width="420" />
 
-## Rain and Atmosphere Breakdown
+## Iteration 01
 
-To support the rain system, I added two smoke layers that help sell spray, road moisture, and atmospheric depth around the tires and rear of the car. This stage was useful for balancing how much of the effect should read as rainfall versus secondary atmosphere.
+This iteration focuses on how the rain behaves once additional smoke layers are introduced around the tires and rear of the car. It was useful for testing how much of the shot should read as direct rainfall versus secondary atmospheric spray.
 
 <video autoplay muted loop playsinline preload="metadata" poster="/posters/car_rain_rnd.jpg">
   <source src="/media/RD/Rain_RD/car_rain_rnd.mp4" type="video/mp4" />
 </video>
 
-## Layer Pass Review
+## Iteration 02
 
-This breakdown pass is focused more on how the rain and atmosphere are organized inside the shot. It shows the structure of the layered setup more directly and helps explain how the final image is built from separate controllable elements.
+This pass shows another variation of the setup, comparing how the smoke and rain layers affect silhouette clarity, depth, and the overall balance of the image.
 
 <video autoplay muted loop playsinline preload="metadata" poster="/posters/car_rain_rnd2.jpg">
   <source src="/media/RD/Rain_RD/car_rain_rnd2.mp4" type="video/mp4" />
