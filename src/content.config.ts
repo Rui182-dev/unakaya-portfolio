@@ -7,7 +7,7 @@ const works = defineCollection({
 		z.object({
 			title: z.string(),
 			subtitle: z.string().optional(),
-			category: z.enum(['personal', 'commercial', 'team', 'tool']),
+			category: z.enum(['personal', 'commercial', 'team', 'tool', 'rnd']),
 			layoutVariant: z.enum(['default', 'editorial']).optional(),
 			featured: z.boolean().default(false),
 			order: z.number(),

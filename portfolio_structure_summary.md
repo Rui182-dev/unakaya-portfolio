@@ -75,7 +75,7 @@ The `works` schema includes:
 - `title`
 - `subtitle`
 - `category`
-  - enum: `personal`, `commercial`, `team`, `tool`
+  - enum: `personal`, `commercial`, `team`, `tool`, `rnd`
 - `layoutVariant`
 - `featured`
 - `order`
@@ -104,6 +104,8 @@ The `works` schema includes:
 - `commercial-hda-work-01.md`
 - `commercial-hda-work-02.md`
 - `tool-rnd-video-01.md`
+- `tool-rnd-video-02.md`
+- `matrix-team-project.md`
 
 The three `personal-fx-shot-*.md` entries now use the richer project-breakdown style as well, with `projectContext`, `contribution`, `additionalNotes`, and `gallery` populated.
 
@@ -162,7 +164,7 @@ The homepage is assembled from:
 - `ReelSection`
 - `WorkGridSection` for personal work
 - `WorkGridSection` for commercial/HDA work
-- `WorkGridSection` for tool/R&D work
+- `WorkGridSection` for tool/R&D work, combining `tool` and `rnd` categories with the same compact card treatment as the production/team section
 - a single combined `AboutSection` used as the compact homepage closing section
 
 ## 5. Layout System
@@ -229,7 +231,7 @@ The homepage is assembled from:
 - Splits entries into:
   - `personalWorks`
   - `commercialWorks` (commercial + team entries)
-  - `toolWorks`
+  - `toolWorks` (`tool` + `rnd` entries)
 
 ### Sections in order
 1. `HeroSection`
@@ -261,7 +263,7 @@ The homepage is assembled from:
   - On mobile, it switches to a one-card-at-a-time swipe carousel with dot indicators
 5. `WorkGridSection` for tool / R&D
    - Uses `toolWorks`
-   - Variant: `featured`
+   - Variant: `compact`
    - Uses the same horizontal carousel shell as the selected personal work section
    - Tool entries are displayed one at a time and navigated with the carousel arrows
 6. `AboutSection`

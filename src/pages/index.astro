@@ -10,7 +10,7 @@ const works = (await getCollection('works')).sort((a, b) => a.data.order - b.dat
 
 const personalWorks = works.filter((work) => work.data.category === 'personal');
 const commercialWorks = works.filter((work) => ['commercial', 'team'].includes(work.data.category));
-const toolWorks = works.filter((work) => work.data.category === 'tool');
+const toolWorks = works.filter((work) => ['tool', 'rnd'].includes(work.data.category));
 ---
 
 <MainLayout>
@@ -38,7 +38,7 @@ const toolWorks = works.filter((work) => work.data.category === 'tool');
 		title="Tool Development and R&D"
 		copy="Procedural tools and technical experiments supporting FX workflows."
 		works={toolWorks}
-		variant="featured"
+		variant="compact"
 	/>
 	<AboutSection />
 </MainLayout>
