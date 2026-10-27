@@ -16,7 +16,6 @@ techniques:
 summary: Simple Houdini shelf tool script for previewing and replacing file path prefixes on selected nodes.
 thumbnail: ../../assets/path_replace_stills/path_tool_thumb.jpg
 video: https://vimeo.com/1175866774
-poster: /posters/tool-rnd-video-01.jpg
 ---
 
 This tool was built to speed up a small but repetitive production task inside Houdini: updating file path prefixes across selected nodes without manually editing each parameter.

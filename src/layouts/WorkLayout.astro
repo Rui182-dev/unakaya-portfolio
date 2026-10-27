@@ -1,6 +1,7 @@
 ---
 import MainLayout from './MainLayout.astro';
 import type { CollectionEntry } from 'astro:content';
+import { site } from '../data/site';
 
 interface Props {
 	work: CollectionEntry<'works'>;
@@ -80,6 +81,7 @@ const isTool = data.category === 'tool';
 								<img src={data.localVideo} alt={data.title} />
 							) : (
 								<video
+									controls
 									autoplay
 									muted
 									loop
@@ -147,6 +149,11 @@ const isTool = data.category === 'tool';
 						</div>
 					</section>
 				)}
+
+				<nav class="hero-actions" aria-label="Work detail navigation">
+					<a class="button button-secondary" href="/#selected-work">Back to Work</a>
+					<a class="button button-primary" href={`mailto:${site.email}`}>Email Me</a>
+				</nav>
 			</article>
 		) : (
 			<article class:list={["work-detail", isTool && "work-detail-tool"]}>
@@ -187,6 +194,7 @@ const isTool = data.category === 'tool';
 								<img src={data.localVideo} alt={data.title} />
 							) : (
 								<video
+									controls
 									autoplay
 									muted
 									loop
@@ -246,6 +254,11 @@ const isTool = data.category === 'tool';
 						</div>
 					</section>
 				)}
+
+				<nav class="hero-actions" aria-label="Work detail navigation">
+					<a class="button button-secondary" href="/#selected-work">Back to Work</a>
+					<a class="button button-primary" href={`mailto:${site.email}`}>Email Me</a>
+				</nav>
 			</article>
 		)
 	}

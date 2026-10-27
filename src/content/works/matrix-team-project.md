@@ -33,7 +33,6 @@ gallery:
   - ../../assets/Matrix/frame_0895.jpg
   - ../../assets/Matrix/matrix_thumb.jpg
 additionalNotes: This shot was completed as a collaborative project, with my contribution focused on bullet FX, rendering, compositing, and 3D camera setup.
-video: https://vimeo.com/000000004
 localVideo: /media/personal/matrix.mp4
 poster: /posters/matrix_001.jpg
 ---
@@ -42,7 +41,7 @@ This shot was developed as part of a team project reimagining a recognizable bul
 
 The main work was done in Houdini and Nuke. I built the procedural bullet setup, handled the 3D camera integration from tracking data, rendered the bullet elements, and completed the final compositing work so the shot would read as a cohesive finished sequence.
 
-<video autoplay muted loop playsinline preload="metadata">
+<video controls autoplay muted loop playsinline preload="metadata">
   <source src="/media/personal/matrix_geo.mp4" type="video/mp4" />
 </video>
 
@@ -50,6 +49,6 @@ The main work was done in Houdini and Nuke. I built the procedural bullet setup,
 
 A large part of the finishing work was making sure the CG bullet elements sat cleanly into the plate. That meant balancing the rendered passes, preserving the motion read of the bullets, and keeping the composite aligned with the camera movement and overall shot rhythm.
 
-<video autoplay muted loop playsinline preload="metadata">
+<video controls autoplay muted loop playsinline preload="metadata">
   <source src="/media/personal/matrix_pass.mp4" type="video/mp4" />
 </video>
