@@ -39,7 +39,7 @@ For this study, I built an HDA that prepares the VDB caches into a USD setup wit
 
 This iteration focuses on how the rain behaves once additional smoke layers are introduced around the tires and rear of the car. It was useful for testing how much of the shot should read as direct rainfall versus secondary atmospheric spray.
 
-<video autoplay muted loop playsinline preload="metadata" poster="/posters/car_rain_rnd.jpg">
+<video controls autoplay muted loop playsinline preload="metadata" poster="/posters/car_rain_rnd.jpg">
   <source src="/media/RD/Rain_RD/car_rain_rnd.mp4" type="video/mp4" />
 </video>
 
@@ -47,6 +47,6 @@ This iteration focuses on how the rain behaves once additional smoke layers are 
 
 This pass shows another variation of the setup, comparing how the smoke and rain layers affect silhouette clarity, depth, and the overall balance of the image.
 
-<video autoplay muted loop playsinline preload="metadata" poster="/posters/car_rain_rnd2.jpg">
+<video controls autoplay muted loop playsinline preload="metadata" poster="/posters/car_rain_rnd2.jpg">
   <source src="/media/RD/Rain_RD/car_rain_rnd2.mp4" type="video/mp4" />
 </video>

@@ -41,7 +41,7 @@ This shot was developed as a compact reel piece to demonstrate layered simulatio
 
 The main work was built in Houdini, with attention on rock breakup, procedural energy motion, lava interaction, smoke shaping, and the timing relationship between the different simulation layers. I treated the shot as an exercise in control and readability, adjusting the pacing of each element so the sequence would feel connected rather than overloaded.
 
-<video autoplay muted loop playsinline preload="metadata">
+<video controls autoplay muted loop playsinline preload="metadata">
   <source src="/media/reel/fp1_pass.mp4" type="video/mp4" />
 </video>
 
@@ -51,6 +51,6 @@ The main work was built in Houdini, with attention on rock breakup, procedural e
 All assets were assembled in Solaris for lighting, layout, and scene organization, and rendered using Karma.
 Multi-pass renders were then composited in Nuke, where I handled integration, color balance, and final image polish to ensure consistency across all simulation layers.
 
-<video autoplay muted loop playsinline preload="metadata">
+<video controls autoplay muted loop playsinline preload="metadata">
   <source src="/media/reel/fp1_comp_bd.mp4" type="video/mp4" />
 </video>

@@ -91,13 +91,12 @@ const isToolCarousel = isFeatured && works.length > 0 && works.every((work) => w
 
 				const renderDots = () => {
 					if (!dots) return;
-					if (!usesCarousel()) {
+					const pageCount = isSingleCardMode() ? Math.max(1, cards.length) : getDesktopPageCount();
+					if (!usesCarousel() || pageCount <= 1) {
 						dots.innerHTML = '';
 						return;
 					}
 
-					dots.innerHTML = '';
-					const pageCount = isSingleCardMode() ? Math.max(1, cards.length) : getDesktopPageCount();
 					const currentIndex = isSingleCardMode()
 						? activeIndex
 						: (() => {
@@ -105,17 +104,29 @@ const isToolCarousel = isFeatured && works.length > 0 && works.every((work) => w
 							return Math.min(pageCount - 1, Math.round((row.scrollLeft / maxScroll) * (pageCount - 1)));
 						})();
 
-					for (let index = 0; index < pageCount; index += 1) {
-						const dot = document.createElement('button');
-						dot.type = 'button';
-						dot.className = `carousel-dot${index === currentIndex ? ' is-active' : ''}`;
-						dot.setAttribute('aria-label', `Go to page ${index + 1}`);
-						dot.addEventListener('click', () => goToPage(index));
-						dots.appendChild(dot);
+					// Rebuild only when the page count changes so a focused dot keeps focus.
+					if (dots.children.length !== pageCount) {
+						dots.innerHTML = '';
+						for (let index = 0; index < pageCount; index += 1) {
+							const dot = document.createElement('button');
+							dot.type = 'button';
+							dot.className = 'carousel-dot';
+							dot.setAttribute('aria-label', `Go to page ${index + 1}`);
+							dot.addEventListener('click', () => goToPage(index));
+							dots.appendChild(dot);
+						}
 					}
+
+					Array.from(dots.children).forEach((dot, index) => {
+						const isActive = index === currentIndex;
+						dot.classList.toggle('is-active', isActive);
+						if (isActive) dot.setAttribute('aria-current', 'true');
+						else dot.removeAttribute('aria-current');
+					});
 				};
 
 				const goToPage = (index) => {
+					hideHint();
 					if (isSingleCardMode()) {
 						activeIndex = Math.max(0, Math.min(cards.length - 1, index));
 						syncSingleCardState();

@@ -35,7 +35,7 @@ This shot was developed as a personal scale study focused on the impact of a lar
 
 The simulation work was built in Houdini with attention on splash direction, impact timing, and the relationship between the larger primary shapes and the surrounding detail layers. I approached the shot as a timing and readability exercise, keeping the main forms clear while using the secondary elements to reinforce scale and energy.
 
-<video autoplay muted loop playsinline preload="metadata">
+<video controls autoplay muted loop playsinline preload="metadata">
   <source src="/media/reel/fp2_pass.mp4" type="video/mp4" />
 </video>
 
@@ -44,7 +44,7 @@ The simulation work was built in Houdini with attention on splash direction, imp
 
 All assets were assembled in Solaris for layout, lighting, and scene organization, then rendered with Karma. Multi-pass renders were composited in Nuke, where I handled integration, color balance, and final image polish to keep the simulation layers consistent in the final frame.
 
-<video autoplay muted loop playsinline preload="metadata">
+<video controls autoplay muted loop playsinline preload="metadata">
   <source src="/media/reel/fp2_comp_bd.mp4" type="video/mp4" />
 </video>
 
@@ -52,7 +52,7 @@ All assets were assembled in Solaris for layout, lighting, and scene organizatio
 
 Textures were created in Substance Painter, then translated into a Solaris material setup using MaterialX. I adjusted shader parameters to develop a cleaner, more polished final look for the shot.
 
-<video autoplay muted loop playsinline preload="metadata">
+<video controls autoplay muted loop playsinline preload="metadata">
   <source src="/media/reel/fp2_lkdb.mp4" type="video/mp4" />
 </video>
 
@@ -60,7 +60,7 @@ Textures were created in Substance Painter, then translated into a Solaris mater
 
 TOP nodes were used to wedge simulation parameters and generate overnight iterations with controlled variable changes, making it easier to compare results and refine the shot efficiently.
 
-<video autoplay muted loop playsinline preload="metadata">
+<video controls autoplay muted loop playsinline preload="metadata">
   <source src="/media/reel/fp2_bd.mp4" type="video/mp4" />
 </video>
 
