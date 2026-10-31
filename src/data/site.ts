@@ -12,7 +12,7 @@ export const site = {
 		'A focused reel featuring personal FX studies, commercial HDA-related work, and a tool-driven R&D piece.',
 	reelEmbedUrl: 'https://player.vimeo.com/video/1176516597?title=0&byline=0&portrait=0',
 	reelCleanEmbedUrl: 'https://player.vimeo.com/video/1176516597',
-	reelUploadDate: '2026-03-24',
+	reelUploadDate: '2026-03-24T06:57:41-04:00',
 	reelDuration: 'PT1M21S',
 	reelLocalVideo: '',
 	reelPoster: '/posters/2026_demoreel_thumbnail.jpg',
