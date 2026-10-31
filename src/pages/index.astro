@@ -5,6 +5,18 @@ import HeroSection from '../components/sections/HeroSection.astro';
 import ReelSection from '../components/sections/ReelSection.astro';
 import WorkGridSection from '../components/sections/WorkGridSection.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
+import { site } from '../data/site';
+
+const reelStructuredData = site.reelEmbedUrl && Astro.site ? {
+	'@context': 'https://schema.org',
+	'@type': 'VideoObject',
+	name: 'Urui Nakaya – FX Artist Demo Reel 2026',
+	description: site.reelSummary,
+	thumbnailUrl: new URL(site.reelPoster, Astro.site).href,
+	uploadDate: site.reelUploadDate,
+	duration: site.reelDuration,
+	embedUrl: site.reelCleanEmbedUrl,
+} : undefined;
 
 const works = (await getCollection('works')).sort((a, b) => a.data.order - b.data.order);
 
@@ -14,6 +26,7 @@ const toolWorks = works.filter((work) => ['tool', 'rnd'].includes(work.data.cate
 ---
 
 <MainLayout>
+	{reelStructuredData && <script type="application/ld+json" set:html={JSON.stringify(reelStructuredData)} />}
 	<HeroSection />
 	<ReelSection />
 	<WorkGridSection
