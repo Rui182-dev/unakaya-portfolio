@@ -16,8 +16,8 @@ techniques:
   - Secondary spray
   - Whitewater shaping
   - Impact timing
-summary: A large-scale water-impact shot focused on silhouette, timing, and layered secondary motion.
-projectContext: Personal simulation study built around a large-scale ocean impact, with close attention to silhouette, timing, and water readability.
+summary: A massive ocean impact shot, focused on silhouette, timing, and layered secondary motion.
+projectContext: Personal simulation study built around a massive ocean impact, with close attention to silhouette, timing, and water readability.
 technicalFocus: The main technical challenge in this shot was separating the large readable splash forms from the finer layers of spray, mist, and whitewater while keeping the setup scalable and easy to iterate in response to art direction and mentor feedback.
 contribution:
   - Simulated the primary water impact and surrounding surface response in Houdini
