@@ -18,7 +18,7 @@ techniques:
   - Secondary spray
   - Whitewater shaping
   - Scale design
-summary: A creature-emergence shot built to emphasize scale, water displacement, and layered atmospheric detail.
+summary: A shot of a creature rising from the ocean, built to emphasize scale, water displacement, and layered atmospheric detail.
 projectContext: Personal FX shot focused on the moment a large creature rises from the ocean, with attention to mass, delayed secondary motion, and water readability.
 technicalFocus: A key challenge in this shot was staging the secondary layers so the water response felt broad and heavy rather than overly active. The timing needed to support the creature emergence without flattening the main silhouette.
 contribution:
@@ -28,7 +28,6 @@ contribution:
 thumbnail: ../../assets/Demoreel2024_stills/fx-shot-03_thumb.jpg
 gallery:
   - ../../assets/Demoreel2024_stills/fx-shot-03_thumb.jpg
-additionalNotes: This entry can be expanded later with closer stills of the water interaction, emergence beat, and creature-scale breakup.
 video: https://youtu.be/6Sk1y3Rfld8
 localVideo: /media/reel/FP3.mp4
 poster: /posters/fx-shot-03.jpg

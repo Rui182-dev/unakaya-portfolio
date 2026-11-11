@@ -18,7 +18,7 @@ officialLink: https://youtu.be/5r9fjXH8Q-k?si=FXJ-AQaCmHx2VkJG
 officialLinkLabel: Official Trailer Link
 contribution:
   - Built and adjusted Houdini setups for the needs of each shot
-  - Supported production-friendly FX iteration through reusable controls
+  - Made FX iteration faster in production through reusable controls
   - Focused on practical integration rather than standalone R&D
 thumbnail: ../../assets/BlueReel_stills/2_output.png
 gallery:
