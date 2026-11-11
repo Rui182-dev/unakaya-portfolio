@@ -15,7 +15,7 @@ techniques:
   - Smoke layering
   - Rough lookdev
 summary: A Houdini R&D study built around a layered rain system for a moving car, combining three rain particle layers, two smoke layers, and rough Solaris lookdev.
-projectContext: This project is an R&D study focused on building a controllable layered rain setup and testing how particles and VDB-based atmosphere behave inside Solaris. The goal was to explore readable heavy rainfall, tire interaction, and atmospheric depth around the car while developing a workable lookdev process.
+projectContext: This project is an R&D study focused on building a controllable layered rain setup and testing how particles and VDB atmosphere behave inside Solaris. The goal was to explore readable heavy rainfall, tire interaction, and atmospheric depth around the car while developing a workable lookdev process.
 contribution:
   - Built the rain setup with three distinct particle layers for depth and scale variation
   - Added two smoke layers to support road spray and atmospheric separation
