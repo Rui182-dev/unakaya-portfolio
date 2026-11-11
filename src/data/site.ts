@@ -9,7 +9,7 @@ export const site = {
 	instagram: 'https://www.instagram.com/nakayaurui/',
 	reelTitle: 'Houdini FX Demoreel',
 	reelSummary:
-		'A focused reel featuring personal FX studies, commercial HDA-related work, and a tool-driven R&D piece.',
+		'A focused reel of personal FX studies, commercial HDA work, and an R&D piece built around a custom tool.',
 	reelEmbedUrl: 'https://player.vimeo.com/video/1176516597?title=0&byline=0&portrait=0',
 	reelCleanEmbedUrl: 'https://player.vimeo.com/video/1176516597',
 	reelUploadDate: '2026-03-24T06:57:41-04:00',
