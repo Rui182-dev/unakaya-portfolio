@@ -18,7 +18,7 @@ techniques:
   - Procedural rock
   - Procedural energy curve
   - Karma/Solaris
-summary: A lightning-driven FX sequence combining destruction, lava, and smoke into a layered cinematic shot.
+summary: An FX sequence combining energy, destruction, lava, and smoke into a layered cinematic shot.
 projectContext: Personal reel shot built to present layered simulation work with a clear read from impact to secondary motion.
 technicalFocus: The main technical challenge was keeping the shot cohesive while several effects overlapped. I focused on balancing primary motion with secondary detail so the sequence felt layered rather than noisy.
 contribution:
